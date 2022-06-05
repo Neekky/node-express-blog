@@ -5,7 +5,9 @@ const app = express();
 
 app.use((req, res, next) => {
   console.log("请求开始...", req.method, req.url);
+  console.log("是不是洋葱圈模型1 开始")
   next();
+  console.log("是不是洋葱圈模型1 结束")
 });
 
 app.use((req, res, next) => {
@@ -13,7 +15,9 @@ app.use((req, res, next) => {
   req.cookie = {
     userId: "abc123",
   };
+  console.log("是不是洋葱圈模型2 开始")
   next();
+  console.log("是不是洋葱圈模型2 结束")
 });
 
 app.use((req, res, next) => {
@@ -44,6 +48,7 @@ app.use("/api", (req, res, next) => {
 app.get("/api", (req, res, next) => {
   console.log("get /api 路由");
   next();
+  console.log("是不是洋葱圈模型")
 });
 app.post("/api", (req, res, next) => {
   console.log("post /api 路由");
